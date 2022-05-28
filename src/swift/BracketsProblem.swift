@@ -21,9 +21,7 @@ struct BracketsStack {
 func checkBrackets(string: String) -> Int{
     let opening: [Character: Character] = ["{": "0", "[": "1", "(": "2"]
     let closing: [Character: Character] = ["}": "0", "]": "1", ")": "2"]
-
     var stack: BracketsStack = BracketsStack()
-    var result = -1
 
     for (index, character) in string.enumerated() {
         if (closing.keys.contains(character)) {
@@ -34,12 +32,11 @@ func checkBrackets(string: String) -> Int{
         else if (opening.keys.contains(character)) {
             stack.push(item: character, position: index + 1)
         }
-        else {continue}
     }
 
     if stack.count() != 0 {
-        result = (stack.pop()).1
+        return (stack.pop()).1
     }
 
-    return result
+    return -1
 }
