@@ -37,6 +37,5 @@ func checkBrackets(string: String) -> Int{
     if stack.count() != 0 {
         return (stack.pop()).1
     }
-
     return -1
 }
